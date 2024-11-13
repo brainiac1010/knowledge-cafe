@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-const Bookmark = ({bookmark}) => {
-    const {title} =bookmark
+const Bookmark = ({ bookmark }) => {
+    const { title } = bookmark;
     return (
         <div className="bg-white p-4 m-4 rounded-md">
             <h3 className="text text-2xl">{title} </h3>
@@ -9,7 +9,8 @@ const Bookmark = ({bookmark}) => {
     );
 };
 
-Bookmark.prototype = {
-    bookmark:PropTypes.object
-}
+Bookmark.propTypes = {
+    bookmark: PropTypes.object.isRequired,  // It's good practice to mark it as required
+};
+
 export default Bookmark;
