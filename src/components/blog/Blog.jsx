@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { FaBookmark } from 'react-icons/fa';
 
 const Blog = ({ blog, handleAddToBookmark, handleMarkAsRead }) => {
-  const { id, title, cover, reading_time, author_img, author, posted_date, hashtag } = blog;
-console.log("working ",id)
+  const { id, title, cover, reading_time, author_img, author, posted_date, hashtags } = blog;
+
   return (
     <div className='mb-20 space-y-4'>
       <img className='w-full mb-8 rounded-md' src={cover} alt={`Cover picture of the title ${title}`} />
@@ -20,29 +20,30 @@ console.log("working ",id)
         <div>
           <span>{reading_time} min read</span>
           <button 
-            onClick={() => {
-            
-              handleAddToBookmark(blog);           
+            onClick={() => {handleAddToBookmark(blog)
+
             }}
             className='ml-2 text-2xl text-green-400'>
             <FaBookmark />
           </button>
         </div>
       </div>
-
       <h2 className="text-4xl">{title}</h2>
 
       <p>
-        {hashtag && hashtag.map((hash, idx) => (
-          <span key={idx}>
-            <a href="">{`#${hash}`}</a> 
-          </span>
-        ))}
-      </p>
+  {blog.hashtag.split(' ').map((hash, idx) => (
+    <span key={idx}>
+      <a href="">{hash}</a>
+    </span>
+  ))}
+</p>
 
+
+     
       <button 
-        className='text-purple-800 font-bold underline'
-        onClick={() => handleMarkAsRead(id,reading_time)}>
+      onClick={() => handleMarkAsRead(id,reading_time)}
+      className='text-purple-800 font-bold underline'
+        >
         Mark as read
       </button>
     </div>

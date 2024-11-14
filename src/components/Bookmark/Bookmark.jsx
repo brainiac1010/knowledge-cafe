@@ -10,7 +10,7 @@ const Bookmark = ({ bookmark }) => {
 };
 
 Bookmark.propTypes = {
-    bookmark: PropTypes.object.isRequired,  // It's good practice to mark it as required
+    bookmark: PropTypes.object.isRequired,  
 };
 
 export default Bookmark;
